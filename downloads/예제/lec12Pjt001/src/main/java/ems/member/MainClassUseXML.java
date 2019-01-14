@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import ems.member.service.EMSInformationService;
 import ems.member.service.StudentAllSelectService;
@@ -38,8 +38,10 @@ public class MainClassUseXML {
 				"Law", "Statistics", "Computer", "Economics", "Public Administration"};
 
 //		StudentAssembler assembler = new StudentAssembler();
-		GenericXmlApplicationContext ctx = 
-				new GenericXmlApplicationContext("classpath:applicationContext.xml");
+//		GenericXmlApplicationContext ctx = 
+//				new GenericXmlApplicationContext("classpath:applicationContext.xml");
+		
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ems.member.configration2.MemberConfig.class);
 		
 		EMSInformationService informationService = ctx.getBean("informationService", EMSInformationService.class);
 		informationService.outputEMSInformation();
@@ -114,9 +116,9 @@ public class MainClassUseXML {
 				System.out.print("|sGender:" + student.getsGender() + "\t");
 				System.out.println("|sMajor:" + student.getsMajor() + "\t");
 			}
-			
+			scanner.close();
 		}
-		
+
 		ctx.close();
 		
 	}
