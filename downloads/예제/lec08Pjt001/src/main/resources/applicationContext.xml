@@ -7,7 +7,7 @@
 
 	<bean id="injectionBean" class="scope.ex.InjectionBean" />
 	
-	<bean id="dependencyBean" class="scope.ex.DependencyBean">
+	<bean id="dependencyBean" class="scope.ex.DependencyBean" scope="prototype">
 		<constructor-arg ref="injectionBean" />
 		<property name="injectionBean" ref="injectionBean" />
 	</bean>
