@@ -41,7 +41,7 @@ public class MainClassUseXML {
 //		GenericXmlApplicationContext ctx = 
 //				new GenericXmlApplicationContext("classpath:applicationContext.xml");
 		
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ems.member.configration2.MemberConfig.class);
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ems.member.configration2.MemberConfig1.class);
 		
 		EMSInformationService informationService = ctx.getBean("informationService", EMSInformationService.class);
 		informationService.outputEMSInformation();
